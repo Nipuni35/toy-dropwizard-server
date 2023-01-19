@@ -1,6 +1,10 @@
 name: "dropwizard-ci-pipeline"
 
 on:
+  issue_comment:
+    types: [ created ]
+  pull_request_review:
+    types: [ submitted ]
   push:
     branch:
       - main
@@ -22,3 +26,8 @@ jobs:
       - name: Test
         working-directory: .
         run: ./gradlew test
+
+      - uses: actions/checkout@1.0.0
+      - uses: micnncim/action-lgtm-reaction@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.LGTM_SECRET }}
