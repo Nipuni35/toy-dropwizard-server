@@ -8,6 +8,13 @@ import io.dropwizard.setup.Environment;
 
 public class HelloWorldApplication extends Application<HelloWorldConfiguration> {
     public static void main(String[] args) throws Exception {
+        int b =0;
+        switch(b){
+            case 1:
+                System.out.println("hj");
+            case 2:
+                System.out.println("32");
+        }
         new HelloWorldApplication().run(args);
     }
 
